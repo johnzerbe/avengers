@@ -1,21 +1,31 @@
-#gameBoard div {
-	width: 40px;
-	height: 40px;
-	/*margin-right: 1%;*/
-	display: inline-block;
-	background-color: white;
-}
 
 #gameBoard {
-	border: 4px solid black;
+	font-size: 0;
+	background-color: black;
+	text-align: center;
 }
 
 .row {
 	margin: 0;
-	display: inline-block;
 }
 
 .square {
+	height: 40px;
+	width: 40px;
 	margin: 0;
 	display: inline-block;
+}
+
+.wall {
+	background-image: url(https://previews.123rf.com/images/davidzydd/davidzydd1709/davidzydd170900391/86737943-abstract-pixel-square-tiled-mosaic-background-geometric-vector-graphic-design-from-golden-colored-sq.jpg);
+	background-size: contain;
+}
+
+.player1 {
+	background-image: url(https://media.giphy.com/media/om1joD6PciRi/200w.gif);
+	background-size: 35px;
+	background-repeat: no-repeat;
+	/*height: 40px;
+	width: 40px;*/
+	/*background-color: purple;*/
 }
