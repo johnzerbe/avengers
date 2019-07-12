@@ -7,8 +7,8 @@
  </head>
  <body>
  	<div id="background">
- 		<audio id="gameSong" autoplay loop>
- 			<source src="" type="audio/mp3" volume=".5">
+ 		<audio id="gameSong" autoplay>
+ 			<source src="" type="audio/mp3" volume=".5" loop="false">
  		</audio>
  		<audio id="audioClip" autoplay>
  			<source src="" type="audio/mp3" volume="1.0" loop="false">
@@ -20,6 +20,16 @@
 		 			<div class="gameButtons">
 	 					<button class="startButton" id="startGameButton">Start</button>
 	 					<button class="startButton" id="instructionsButton">Instructions</button>
+	 					<div id="myModal" class="modal">
+	 						<div class="modal-content">
+		 						<span class="close">&times;</span>
+		 						<h1>Welcome Mr. Stark</h1>
+		 						<p>Thanos and his Black Order are terrorizing the cosmos in search of the six infinity stones so that he may wipe out half of all life. Now that Thanos knows that you're searching for the stones as well, he has redirected his efforts to finding and eliminating you.</p>
+		 						<p>You must gather all of the infinity stones and use the Gauntlet to destroy Thanos and his hoarde in order to save the universe. Once you start, it will be an all-out sprint to gather the stones, all while avoiding the Black Order.</p>
+		 						<p>Once the map loads, you will start in the upper left corner. To move, use the up, down, left, and right arrow keys. Upon acquiring a stone, it will appear in your "Stones Acquired" box at the top of the page. You only have one life, so make it count. As Cap would put it, "No Do-Over's."</p>
+		 						<p>You now have your mission details. Good luck, Mr. Stark. The universe is counting on you!</p>
+	 						</div>
+	 					</div>
 	 				</div>
 	 			</div>
 	 			<div class="stonesImage">

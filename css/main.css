@@ -165,8 +165,8 @@ div.player1 {
 	background-image: url("https://img1.picmix.com/output/stamp/normal/2/2/7/3/1183722_dc344.gif");
 	background-size: contain;
 	background-repeat: no-repeat;
-	transition-delay: 2s;
-	transition-duration: 3s;
+	transition-delay: 4s;
+	transition-duration: 4s;
 }
 
 .numberOfStones {
@@ -272,3 +272,46 @@ div.player1 {
 	transform: translateY(4px);
 	box-shadow: 0 5px #666 
 }
+
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: rgba(0, 0, 102, 1);
+  margin: 60px auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  font-size: 25px;
+  line-height: 1;
+  text-shadow: none;
+}
+
+.close {
+  color: white;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+

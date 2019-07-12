@@ -1,6 +1,7 @@
 
 function initGame(){
 	$(".gamePlay").hide();
+	// $("#myModal").hide();
 	$(".losingPage").hide();
 }
 initGame();
@@ -128,7 +129,7 @@ const player1 = {
 		this.render();
 		setTimeout(()=>{
 			this.move();
-		},250)
+		},350)
 	}
 	},
 	checkDeath(){
@@ -141,7 +142,7 @@ const player1 = {
 		$(".gamePlay").hide();
 		$(".losingPage").show();
 		$("#gameSong").attr("src", "")
-		$("#audioClip").attr("src", "gameOverThanosQuote.mp3");
+		$("#audioClip").attr("src", "losingSong.mp3");
 		$(".futureLosingImage").addClass("losingImage");
 		}
 	},
@@ -149,7 +150,7 @@ const player1 = {
 		if(grabSquare(this.x, this.y).hasClass("infinityGauntlet")){
 			gameOn = false;
 			grabSquare(this.x, this.y).removeClass("infinityGauntlet");
-			// $("#gameSong").attr("src", "https://youtu.be/enF9O6ILx-Q?t=22")
+			$("#gameSong").attr("src", "victorySong.mp3");
 			grabSquare(thanos.x, thanos.y).removeClass("thanos");
 			grabSquare(thanos.x, thanos.y).addClass("dust");
 			grabSquare(blackDwarf.x, blackDwarf.y).removeClass("blackDwarf");
@@ -163,7 +164,7 @@ const player1 = {
 			clearInterval(timer);
 			setTimeout(()=>{
 				$(".dust").removeClass("dust");
-			}, 5000)
+			}, 8000)
 		}
 	}
 }
@@ -223,11 +224,11 @@ class Enemy {
 	}
 };
 
-const thanos = new Enemy("thanos", 7, 9, 250);
-const blackDwarf = new Enemy("blackDwarf", 1, 1, 500);
-const corvusGlaive = new Enemy("corvusGlaive", 14, 11, 500);
+const thanos = new Enemy("thanos", 7, 9, 400);
+const blackDwarf = new Enemy("blackDwarf", 1, 1, 700);
+const corvusGlaive = new Enemy("corvusGlaive", 14, 11, 700);
 const ebonyMaw = new Enemy("ebonyMaw", 3, 11, 500);
-const proximaMidnight = new Enemy("proximaMidnight", 14, 1, 500);
+const proximaMidnight = new Enemy("proximaMidnight", 14, 1, 700);
 
 $("body").on("keydown", function(e){
 	switch(e.which){
@@ -316,10 +317,13 @@ $("#playAgainButton").click(function(){
 	location.reload();
 })
 
+$("#instructionsButton").click(function(){
+	$(".modal").css("display", "block");
+})
 
-
-
-
+$(".close").click(function(){
+	$(".modal").css("display", "none");
+})
 
 
 
