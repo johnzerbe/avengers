@@ -1,33 +1,44 @@
+body {
+	margin: 0;
+}
+
 #background {
 	background-image: url("https://ewedit.files.wordpress.com/2019/04/avengers-3.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 100vh;
+	height: 98vh;
 	width: 100vw;
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
+	background-position: center;
 }
 
 #gameBoard {
 	font-size: 0;
-	/*background-color: black;*/
-	/*text-align: center;*/
 	background-size: cover;
 	background-repeat: no-repeat;
-	display: inline-block;
-	margin: 0 15px 0 -200px;
+	display: inline;
+	bottom: 0;
 }
 
 #stats {
-	text-align: left;
 	border: thin solid purple;
-	background-color: rgba(0,0,0, 0.7);
-	display: table-cell;
-	float: left;
-	margin: 50px 10px 0px 150px;
-	padding: 0 10px 0 10px;
+	background-color: rgba(0,0,0, 0.8);
+	display: inline-block;
+	margin: 40px 0px -;
 	color: white;
+	width: 635px;
+	height: 50px;
+	line-height: 1;
+	font-size: 25px;
+	font-family: 'Bangers', cursive;
+	overflow: hidden;
+}
+
+.column {
+	float: left;
+	width: 50%;
 }
 
 .row {
@@ -66,55 +77,55 @@ div.player1 {
 }
 
 .powerStone {
-	/*background-image: url("https://66.media.tumblr.com/60415eabf0475a5842b6e958087eb705/tumblr_okporvUv9f1sox2ufo3_400.gif");*/
 	background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e01f9dd1-f4fa-4f67-bac7-ccdcc28eba07/dbrx6jw-adea8c2a-afce-4d8d-8f5a-1bbef3f65f38.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2UwMWY5ZGQxLWY0ZmEtNGY2Ny1iYWM3LWNjZGNjMjhlYmEwN1wvZGJyeDZqdy1hZGVhOGMyYS1hZmNlLTRkOGQtOGY1YS0xYmJlZjNmNjVmMzgucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.9KPGs8K-SZZljDrTm8AYw2TtPYkxSrPWXnZJYPSbwPI");
 	background-size: contain;
 	background-repeat: no-repeat;
 	opacity: 1;
+	position: center;
 }
 
 .timeStone {
-/*	background-image: url("http://www.instarbooks.com/books/emerald.gif");*/
 	background-image: url("https://fingersnap.org/wp-content/uploads/2019/04/Time-Stone.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	opacity: 1;
+	position: center;
 }
 
 .spaceStone {
-	/*background-image: url("https://magnumsun.github.io/kek/super%20sapphire%20gem.gif");*/
 	background-image: url("https://qph.fs.quoracdn.net/main-qimg-eaa64a24f42ac4369c9e1cc599dfec19");
 	background-size: contain;
 	background-repeat: no-repeat;
 	opacity: 1;
+	position: center;
 }
 
 .realityStone {
-	/*background-image: url("https://magnumsun.github.io/kek/super%20ruby%20gem.gif");*/
 	background-image: url("https://qph.fs.quoracdn.net/main-qimg-cce353f308e62c03e0cdab8fa3631af3");
 	background-size: contain;
 	background-repeat: no-repeat;
 	opacity: 1;
+	position: center;
 }
 
 .mindStone {
-/*	background-image: url("http://www.caspergaming.com/FJKB/Images/super_topaz_gem.gif");*/
 	background-image: url("https://fingersnap.org/wp-content/uploads/2019/04/Mind-Stone.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	opacity: 1;
+	position: center;
 }
 
 .soulStone {
 	background-image: url("https://qph.fs.quoracdn.net/main-qimg-892c2f00178ba6065c00e2fa1be17a73");
-	/*background-image: url("https://media.giphy.com/media/7SxuENUoMV8Sk/giphy.gif");*/
 	background-size: contain;
 	background-repeat: no-repeat;
 	opacity: 1;
+	position: center;
 }
 
 .infinityGauntlet {
-	background-image: url("https://c1-ebgames.eb-cdn.com.au/merchandising/images/packshots/8ecc2581da29494797625f0583256a69_Large.png");
+	background-image: url("https://media1.giphy.com/media/26VjwfLk7CRslWHSWI/source.gif");
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -149,5 +160,37 @@ div.player1 {
 	background-size: contain;
 	background-repeat: no-repeat;
 }
+
+.dust {
+	background-image: url("https://img1.picmix.com/output/stamp/normal/2/2/7/3/1183722_dc344.gif");
+	background-size: contain;
+	background-repeat: no-repeat;
+	transition-delay: 2s;
+	transition-duration: 3s;
+}
+
+.numberOfStones {
+	height: 1.5vmax;
+	width: 1.5vmax;
+	display: inline-block;
+}
+
+.losingImage {
+	background-image: url("https://cdn.images.express.co.uk/img/dynamic/36/590x/secondary/thanos-iron-man-1850998.jpg?r=1556720967679");
+	background-size: cover;
+	height: 350px;
+	width: 590px;
+	margin: 0 auto;
+	border: thick solid purple;
+}
+
+.deathQuote {
+	font-size: 35px;
+	color: #FFD732;
+}
+
+
+
+
 
 

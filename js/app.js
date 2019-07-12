@@ -37,6 +37,8 @@ function startTimer(){
 	}
 }
 
+let gameOn = true;
+
 function grabSquare(x, y){
 	return $(`.square[x="${x}"][y="${y}"]`);
 }
@@ -45,29 +47,37 @@ function removeStone(){
 	if(grabSquare(this.x,this.y).hasClass("powerStone")){
 		grabSquare(this.x,this.y).removeClass("powerStone");
 		this.points ++;
-		$("#numberOfStones").text(this.points);
+		// $("#numberOfStones").text(this.points);
+		$("#power").addClass("powerStone");
 	}else if(grabSquare(this.x,this.y).hasClass("mindStone")){
 		grabSquare(this.x,this.y).removeClass("mindStone");
 		this.points ++;
-		$("#numberOfStones").text(this.points);
+		// $("#numberOfStones").text(this.points);
+		$("#mind").addClass("mindStone");
 	}else if(grabSquare(this.x,this.y).hasClass("spaceStone")){
 		grabSquare(this.x,this.y).removeClass("spaceStone");
 		this.points ++;
-		$("#numberOfStones").text(this.points);
+		// $("#numberOfStones").text(this.points);
+		$("#space").addClass("spaceStone");
 	}else if(grabSquare(this.x,this.y).hasClass("soulStone")){
 		grabSquare(this.x,this.y).removeClass("soulStone");
 		this.points ++;
-		$("#numberOfStones").text(this.points);
+		// $("#numberOfStones").text(this.points);
+		$("#soul").addClass("soulStone");
 	}else if(grabSquare(this.x,this.y).hasClass("timeStone")){
 		grabSquare(this.x,this.y).removeClass("timeStone");
 		this.points ++;
-		$("#numberOfStones").text(this.points);
+		// $("#numberOfStones").text(this.points);
+		$("#time").addClass("timeStone");
 	}else if(grabSquare(this.x,this.y).hasClass("realityStone")){
 		grabSquare(this.x,this.y).removeClass("realityStone");
 		this.points ++;
-		$("#numberOfStones").text(this.points);
+		// $("#numberOfStones").text(this.points);
+		$("#reality").addClass("realityStone");
 	}
 };
+
+
 
 
 const player1 = {
@@ -80,170 +90,69 @@ const player1 = {
 		grabSquare(this.x, this.y).addClass("player1");
 	},
 	move(){
+		if(gameOn === true){
 		if(this.direction === "left" && grabSquare(this.x-1, this.y).hasClass("path")){
 			this.x--;
 			this.checkDeath();
 			removeStone.bind(this)();
+			checkPoints();
+			this.checkGauntlet();
 		}else if(this.direction === "right" && grabSquare(this.x+1, this.y).hasClass("path")){
 			this.x++;
 			this.checkDeath();
 			removeStone.bind(this)();
+			checkPoints();
+			this.checkGauntlet();
 		}else if(this.direction === "up" && grabSquare(this.x, this.y+1).hasClass("path")){
 			this.y++;
 			this.checkDeath();
 			removeStone.bind(this)();
+			checkPoints();
+			this.checkGauntlet();
 		}else if(this.direction === "down" && grabSquare(this.x, this.y-1).hasClass("path")){
 			this.y--;
 			this.checkDeath();
 			removeStone.bind(this)();
+			checkPoints();
+			this.checkGauntlet();
 		}
 		this.render();
 		setTimeout(()=>{
 			this.move();
 		},250)
+	}
 	},
 	checkDeath(){
 		if(grabSquare(this.x, this.y).hasClass("thanos") || grabSquare(this.x, this.y).hasClass("blackDwarf") || grabSquare(this.x, this.y).hasClass("corvusGlaive") || grabSquare(this.x, this.y).hasClass("ebonyMaw") || grabSquare(this.x, this.y).hasClass("proximaMidnight")){
 		$('.player1').removeClass("player1");
 		clearInterval(timer);
-		alert("You've run into the Black Order, and have been killed!");
+		gameOn = false;
+		// alert("You've run into the Black Order, and have been killed!");
+		}
+	},
+	checkGauntlet(){
+		if(grabSquare(this.x, this.y).hasClass("infinityGauntlet")){
+			gameOn = false;
+			grabSquare(this.x, this.y).removeClass("infinityGauntlet");
+			grabSquare(thanos.x, thanos.y).removeClass("thanos");
+			grabSquare(thanos.x, thanos.y).addClass("dust");
+			grabSquare(blackDwarf.x, blackDwarf.y).removeClass("blackDwarf");
+			grabSquare(blackDwarf.x, blackDwarf.y).addClass("dust");
+			grabSquare(corvusGlaive.x, corvusGlaive.y).removeClass("corvusGlaive");
+			grabSquare(corvusGlaive.x, corvusGlaive.y).addClass("dust");
+			grabSquare(ebonyMaw.x, ebonyMaw.y).removeClass("ebonyMaw");
+			grabSquare(ebonyMaw.x, ebonyMaw.y).addClass("dust");
+			grabSquare(proximaMidnight.x, proximaMidnight.y).removeClass("proximaMidnight");
+			grabSquare(proximaMidnight.x, proximaMidnight.y).addClass("dust");
+			clearInterval(timer);
+			setTimeout(()=>{
+				$(".dust").removeClass("dust");
+			}, 5000)
 		}
 	}
 }
 
-// const thanos = {
-// 	y: 9,
-// 	x: 7,
-// 	direction: null,
-// 	render(){
-// 		$(".thanos").removeClass("thanos");
-// 		grabSquare(this.x, this.y).addClass("thanos");
-// 	},
-// 	move(){
-// 		const directions = ["left", "right", "down", "up"];
-// 		const randomDirection = directions[Math.floor(Math.random()*directions.length)];
-// 		if(randomDirection === "left" && grabSquare(this.x-1, this.y).hasClass("path")){
-// 			this.x--;
-// 		}else if(randomDirection === "right" && grabSquare(this.x+1, this.y).hasClass("path")){
-// 			this.x++;
-// 		}else if(randomDirection === "up" && grabSquare(this.x, this.y+1).hasClass("path")){
-// 			this.y++;
-// 		}else if(randomDirection === "down" && grabSquare(this.x, this.y-1).hasClass("path")){
-// 			this.y--;
-// 		}
-// 		this.render();
-// 		setTimeout(()=>{
-// 			this.move();
-// 		}, 500)
-// 	}
-// };
 
-// const blackDwarf = {
-// 	y: 1,
-// 	x: 1,
-// 	render(){
-// 		$(".blackDwarf").removeClass("blackDwarf");
-// 		grabSquare(this.x, this.y).addClass("blackDwarf");
-// 	},
-// 	move(){
-// 		const directions = ["left", "right", "down", "up"];
-// 		const randomDirection = directions[Math.floor(Math.random()*directions.length)];
-// 		if(randomDirection === "left" && grabSquare(this.x-1, this.y).hasClass("path")){
-// 			this.x--;
-// 		}else if(randomDirection === "right" && grabSquare(this.x+1, this.y).hasClass("path")){
-// 			this.x++;
-// 		}else if(randomDirection === "up" && grabSquare(this.x, this.y+1).hasClass("path")){
-// 			this.y++;
-// 		}else if(randomDirection === "down" && grabSquare(this.x, this.y-1).hasClass("path")){
-// 			this.y--;
-// 		}
-// 		this.render();
-// 		setTimeout(()=>{
-// 			this.move();
-// 		}, 750)
-// 	}
-// };
-
-// const corvusGlaive = {
-// 	y: 11,
-// 	x: 14,
-// 	direction: null,
-// 	render(){
-// 		$(".corvusGlaive").removeClass("corvusGlaive");
-// 		grabSquare(this.x, this.y).addClass("corvusGlaive");
-// 	},
-// 	move(){
-// 		const directions = ["left", "right", "down", "up"];
-// 		const randomDirection = directions[Math.floor(Math.random()*directions.length)];
-// 		if(randomDirection === "left" && grabSquare(this.x-1, this.y).hasClass("path")){
-// 			this.x--;
-// 		}else if(randomDirection === "right" && grabSquare(this.x+1, this.y).hasClass("path")){
-// 			this.x++;
-// 		}else if(randomDirection === "up" && grabSquare(this.x, this.y+1).hasClass("path")){
-// 			this.y++;
-// 		}else if(randomDirection === "down" && grabSquare(this.x, this.y-1).hasClass("path")){
-// 			this.y--;
-// 		}
-// 		this.render();
-// 		setTimeout(()=>{
-// 			this.move();
-// 		}, 750)
-// 	}
-// };
-
-// const ebonyMaw = {
-// 	y: 11,
-// 	x: 3,
-// 	direction: null,
-// 	render(){
-// 		$(".ebonyMaw").removeClass("ebonyMaw");
-// 		grabSquare(this.x, this.y).addClass("ebonyMaw");
-// 	},
-// 	move(){
-// 		const directions = ["left", "right", "down", "up"];
-// 		const randomDirection = directions[Math.floor(Math.random()*directions.length)];
-// 		if(randomDirection === "left" && grabSquare(this.x-1, this.y).hasClass("path")){
-// 			this.x--;
-// 		}else if(randomDirection === "right" && grabSquare(this.x+1, this.y).hasClass("path")){
-// 			this.x++;
-// 		}else if(randomDirection === "up" && grabSquare(this.x, this.y+1).hasClass("path")){
-// 			this.y++;
-// 		}else if(randomDirection === "down" && grabSquare(this.x, this.y-1).hasClass("path")){
-// 			this.y--;
-// 		}
-// 		this.render();
-// 		setTimeout(()=>{
-// 			this.move();
-// 		}, 750)
-// 	}
-// };
-
-// const proximaMidnight = {
-// 	y: 1,
-// 	x: 14,
-// 	direction: null,
-// 	render(){
-// 		$(".proximaMidnight").removeClass("proximaMidnight");
-// 		grabSquare(this.x, this.y).addClass("proximaMidnight");
-// 	},
-// 	move(){
-// 		const directions = ["left", "right", "down", "up"];
-// 		const randomDirection = directions[Math.floor(Math.random()*directions.length)];
-// 		if(randomDirection === "left" && grabSquare(this.x-1, this.y).hasClass("path")){
-// 			this.x--;
-// 		}else if(randomDirection === "right" && grabSquare(this.x+1, this.y).hasClass("path")){
-// 			this.x++;
-// 		}else if(randomDirection === "up" && grabSquare(this.x, this.y+1).hasClass("path")){
-// 			this.y++;
-// 		}else if(randomDirection === "down" && grabSquare(this.x, this.y-1).hasClass("path")){
-// 			this.y--;
-// 		}
-// 		this.render();
-// 		setTimeout(()=>{
-// 			this.move();
-// 		}, 750)
-// 	}
-// };
 
 class Enemy {
 	constructor(className, x, y, speed) {
@@ -257,6 +166,7 @@ class Enemy {
 		grabSquare(this.x, this.y).addClass(`${this.className}`);
 	};
 	move(){
+		if(gameOn === true){
 		const directions = ["left", "right", "down", "up"];
 		const randomDirection = directions[Math.floor(Math.random()*directions.length)];
 		if(randomDirection === "left" && grabSquare(this.x-1, this.y).hasClass("path")){
@@ -276,23 +186,29 @@ class Enemy {
 		setTimeout(()=>{
 			this.move();
 		}, this.speed)
+	}
 	};
 	checkKill(){
 		if(grabSquare(this.x, this.y).hasClass("player1")){
 			$(".player1").removeClass("player1");
 			watchIsRunning = false;
+			gameOn = false;
 			clearInterval(timer);
-			alert("You've been caught and killed by the Black Order!")
+			alert("You've been caught and killed by the Black Order!");
+			$("#gamePlay").empty();
+			$(".futureLosingImage").addClass("losingImage");
+			$(".futureDeathQuote").text("R.I.P. Tony Stark");
+			$(".futureDeathQuote").addClass("deathQuote");
 
 		}
 	}
 };
 
-const thanos = new Enemy("thanos", 7, 9, 500);
-const blackDwarf = new Enemy("blackDwarf", 1, 1, 750);
-const corvusGlaive = new Enemy("corvusGlaive", 14, 11, 750);
-const ebonyMaw = new Enemy("ebonyMaw", 3, 11, 750);
-const proximaMidnight = new Enemy("proximaMidnight", 14, 1, 750);
+const thanos = new Enemy("thanos", 7, 9, 250);
+const blackDwarf = new Enemy("blackDwarf", 1, 1, 500);
+const corvusGlaive = new Enemy("corvusGlaive", 14, 11, 500);
+const ebonyMaw = new Enemy("ebonyMaw", 3, 11, 500);
+const proximaMidnight = new Enemy("proximaMidnight", 14, 1, 500);
 
 $("body").on("keydown", function(e){
 	switch(e.which){
@@ -354,8 +270,12 @@ function checkPoints(){
 	if(player1.points === 6){
 		// $(".infinityGauntlet").removeClass("infinityGauntlet");
 		grabSquare(7,8).addClass("infinityGauntlet");
+		player1.points = 0;
+		// $("#numberOfStones").text("6");
+		alert("You've acquired all six infinity stones! Get to the Gauntlet and end this!")
 	}
 }
+
 
 function playGame(){
 	createGameBoard();
