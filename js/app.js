@@ -1,4 +1,13 @@
 
+function initGame(){
+	$(".gamePlay").hide();
+	$(".losingPage").hide();
+}
+initGame();
+
+$("#gameSong").volume = 0.4;
+$("#audioClip").volume = 1.0;
+
 const gameBoard =[
 
 	[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
@@ -125,15 +134,22 @@ const player1 = {
 	checkDeath(){
 		if(grabSquare(this.x, this.y).hasClass("thanos") || grabSquare(this.x, this.y).hasClass("blackDwarf") || grabSquare(this.x, this.y).hasClass("corvusGlaive") || grabSquare(this.x, this.y).hasClass("ebonyMaw") || grabSquare(this.x, this.y).hasClass("proximaMidnight")){
 		$('.player1').removeClass("player1");
-		clearInterval(timer);
+		watchIsRunning = false;
 		gameOn = false;
-		// alert("You've run into the Black Order, and have been killed!");
+		clearInterval(timer);
+		alert("You've run into the Black Order, and have been killed!");
+		$(".gamePlay").hide();
+		$(".losingPage").show();
+		$("#gameSong").attr("src", "")
+		$("#audioClip").attr("src", "gameOverThanosQuote.mp3");
+		$(".futureLosingImage").addClass("losingImage");
 		}
 	},
 	checkGauntlet(){
 		if(grabSquare(this.x, this.y).hasClass("infinityGauntlet")){
 			gameOn = false;
 			grabSquare(this.x, this.y).removeClass("infinityGauntlet");
+			// $("#gameSong").attr("src", "https://youtu.be/enF9O6ILx-Q?t=22")
 			grabSquare(thanos.x, thanos.y).removeClass("thanos");
 			grabSquare(thanos.x, thanos.y).addClass("dust");
 			grabSquare(blackDwarf.x, blackDwarf.y).removeClass("blackDwarf");
@@ -195,10 +211,13 @@ class Enemy {
 			gameOn = false;
 			clearInterval(timer);
 			alert("You've been caught and killed by the Black Order!");
-			$("#gamePlay").empty();
+			$(".gamePlay").hide();
+			$(".losingPage").show();
+			$("#gameSong").attr("src", "")
+			$("#audioClip").attr("src", "gameOverThanosQuote.mp3");
 			$(".futureLosingImage").addClass("losingImage");
-			$(".futureDeathQuote").text("R.I.P. Tony Stark");
-			$(".futureDeathQuote").addClass("deathQuote");
+			// $(".futureDeathQuote").text("R.I.P. Tony Stark");
+			// $(".futureDeathQuote").addClass("deathQuote");
 
 		}
 	}
@@ -268,16 +287,16 @@ function placeStones(){
 
 function checkPoints(){
 	if(player1.points === 6){
-		// $(".infinityGauntlet").removeClass("infinityGauntlet");
 		grabSquare(7,8).addClass("infinityGauntlet");
 		player1.points = 0;
-		// $("#numberOfStones").text("6");
 		alert("You've acquired all six infinity stones! Get to the Gauntlet and end this!")
 	}
 }
 
 
 function playGame(){
+	$(".startPage").empty();
+	$(".gamePlay").show();
 	createGameBoard();
 	startTimer();
 	thanos.move();
@@ -288,8 +307,15 @@ function playGame(){
 	checkPoints();
 }
 
+$("#startGameButton").click(function(){
+	playGame();
+	$("#gameSong").attr("src", "avengersSuite.mp3");
+})
 
-playGame();
+$("#playAgainButton").click(function(){
+	location.reload();
+})
+
 
 
 

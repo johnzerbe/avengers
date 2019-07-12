@@ -32,7 +32,7 @@ body {
 	height: 50px;
 	line-height: 1;
 	font-size: 25px;
-	font-family: 'Bangers', cursive;
+	font-family: 'Bangers', cursive, sans-serif;
 	overflow: hidden;
 }
 
@@ -189,8 +189,86 @@ div.player1 {
 	color: #FFD732;
 }
 
+.infinityStonesStartImage {
+	background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1dbc1935-6542-4ee3-822f-135cff4ba62c/daqe792-986bac8a-dc43-4587-87cf-5a524f0f4ab3.png/v1/fill/w_932,h_858,strp/infinity_stones___transparent_background__by_camo_flauge_daqe792-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTQzIiwicGF0aCI6IlwvZlwvMWRiYzE5MzUtNjU0Mi00ZWUzLTgyMmYtMTM1Y2ZmNGJhNjJjXC9kYXFlNzkyLTk4NmJhYzhhLWRjNDMtNDU4Ny04N2NmLTVhNTI0ZjBmNGFiMy5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.zOxnfjMRZHgFyfVFV9yLIYIHU0vriIBJbo3iwvV_Kng");
+	background-size: contain;
+	background-repeat: no-repeat;
 
+}
 
+.startPage {
+	text-align: center;
+	vertical-align: middle;
+	margin: 0 auto;
+/*	font-family: 'Bangers', cursive;
+	color: white;*/
+}
 
+.title {
+	font-family: 'Bangers', cursive;
+	color: #A866E8;
+	font-size: 40px;
+	margin-top: -110px;
+	line-height: 10px;
+	display: inline-block;
+	border: thin solid black;
+	background-color: rgba(0,0,0,.8);
+	width: 500px;
+	border-radius: 50px;
+	text-shadow:
+		-1px -1px 0 #FFF,
+		1px -1px 0 #FFF,
+		-1px 1px 0 #FFF,
+		1px 1px 0 #FFF;
 
+}
 
+.gameButtons {
+	margin-bottom: 25px;
+}
+
+.startButton {
+	background-color: #A2EAFF;
+	font-size: 20px;
+	padding: 6px 10px;
+	border-radius: 15px;
+	border: thin solid #A2EAFF;
+	transition-duration: .4s;
+	font-family: 'Bangers', cursive;
+}
+
+.startButton:hover {
+	/*background-color: #FFC418;*/
+	background-color: #A866E8;
+	color: white;
+}
+
+.startButton:active {
+	/*background-color: #FFC418;*/
+	background-color: #A866E8;
+	transform: translateY(4px);
+	box-shadow: 0 5px #666 
+}
+
+#playAgainButton {
+	background-color: #A2EAFF;
+	font-size: 35px;
+	padding: 6px 10px;
+	border-radius: 15px;
+	border: thin solid #A2EAFF;
+	transition-duration: .4s;
+	font-family: 'Bangers', cursive;
+	margin-top: 10px;
+	box-shadow: 5px 8px 16px 0 rgba(0,0,0,0.7)
+}
+
+#playAgainButton:hover {
+	background-color: #A866E8;
+	color: white;
+}
+
+#playAgainButton:active {
+	background-color: #A866E8;
+	transform: translateY(4px);
+	box-shadow: 0 5px #666 
+}
