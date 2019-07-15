@@ -3,11 +3,12 @@ function initGame(){
 	$(".gamePlay").hide();
 	// $("#myModal").hide();
 	$(".losingPage").hide();
+	$(".gameWon").hide();
 }
 initGame();
 
-$("#gameSong").volume = 0.4;
-$("#audioClip").volume = 1.0;
+// $("#gameSong").volume = 0.4;
+// $("#audioClip").volume = 1.0;
 
 const gameBoard =[
 
@@ -162,10 +163,15 @@ const player1 = {
 			grabSquare(proximaMidnight.x, proximaMidnight.y).removeClass("proximaMidnight");
 			grabSquare(proximaMidnight.x, proximaMidnight.y).addClass("dust");
 			clearInterval(timer);
+			$("#winningText").text("You won! The universe has been saved!");
+
 			setTimeout(()=>{
 				$(".dust").removeClass("dust");
-			}, 8000)
-		}
+				// $(".gameWon").show();
+				// $("#winningText").text("You won! The universe has been saved!");
+			}, 8000); 
+				$(".gameWon").show();
+		} 
 	}
 }
 
@@ -215,7 +221,7 @@ class Enemy {
 			$(".gamePlay").hide();
 			$(".losingPage").show();
 			$("#gameSong").attr("src", "")
-			$("#audioClip").attr("src", "gameOverThanosQuote.mp3");
+			$("#audioClip").attr("src", "losingSong.mp3");
 			$(".futureLosingImage").addClass("losingImage");
 			// $(".futureDeathQuote").text("R.I.P. Tony Stark");
 			// $(".futureDeathQuote").addClass("deathQuote");
@@ -298,6 +304,7 @@ function checkPoints(){
 function playGame(){
 	$(".startPage").empty();
 	$(".gamePlay").show();
+	$(".gameWon").hide();
 	createGameBoard();
 	startTimer();
 	thanos.move();
