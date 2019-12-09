@@ -28,7 +28,7 @@ body {
 	border: thin solid purple;
 	background-color: rgba(0,0,0, 0.8);
 	display: inline-block;
-	margin: 40px 0px;
+	margin: 20px 0px 0px 0px;
 	color: white;
 	width: 635px;
 	height: 50px;
@@ -140,7 +140,7 @@ div.player1 {
 }
 
 .blackDwarf {
-	background-image: url("https://vignette.wikia.nocookie.net/marvel-contestofchampions/images/6/63/Cull_Obsidian_portrait.png/revision/latest?cb=20190424222835");
+	background-image: url("https://mbch.guide/wp-content/uploads/portrait_cull_obsidian.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 }
