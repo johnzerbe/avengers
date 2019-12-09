@@ -2,7 +2,7 @@
 In this browser-based, PacMan-styled game, play as Iron Man as you set out to collect all six Infinity Stones, all while avoiding Thanos and his Black Order. Collect all six of the stones and use the Infinity Gauntlet wipe out your enemies and win the game!
 
 # Motivation
-For my first interactive project using JavaScript I wanted to challenge myself by constructing something that was fun and enjoybale for the user while incorporating something I love, the Avengers (I'm a big Marvel fan). 
+I love the Avengers, and I love arcade games, so what better way to challenge my beginner JavaScript skills than to create a PacMan-styled game with an Avengers theme? Not only did I want to learn how to create a one-player game, but I wanted to create one that was aesthetically vibrant yet difficult enough where the player was kept on their toes. I believe the final product accomplishes all of those.
 
 # Screenshot #1
 ![screenshot 1](./avengers-menu.png)
