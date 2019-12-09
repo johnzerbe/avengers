@@ -1,4 +1,5 @@
 # Avengers PacMan
+#### https://johnzerbe.github.io/avengers/
 In this browser-based, PacMan-styled game, play as Iron Man as you set out to collect all six Infinity Stones, all while avoiding Thanos and his Black Order. Collect all six of the stones and use the Infinity Gauntlet wipe out your enemies and win the game!
 
 # Motivation
