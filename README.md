@@ -5,10 +5,10 @@ In this browser-based, PacMan-styled game, play as Iron Man as you set out to co
 # Motivation
 I love the Avengers, and I love arcade games, so what better way to challenge my beginner JavaScript skills than to create a PacMan-styled game with an Avengers theme? Not only did I want to learn how to create a one-player game, but I wanted to create one that was aesthetically vibrant yet difficult enough where the player was kept on their toes. I believe the final product accomplishes all of those.
 
-# Screenshot #1
+# Home Page
 ![screenshot 1](./avengers-menu.png)
 
-# Screenshot #2
+# Gameplay
 ![screenshot 2](./avengers-gameplay.png)
 
 # Tech/Frameworks Used
