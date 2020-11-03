@@ -66,7 +66,7 @@ body {
 }
 
 div.player1 {
-	background-image: url(https://www.stickpng.com/assets/images/580b57fbd9996e24bc43c051.png);
+	background-image: url("https://www.stickpng.com/assets/images/580b57fbd9996e24bc43c051.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	opacity: 1;
@@ -152,7 +152,7 @@ div.player1 {
 }
 
 .corvusGlaive {
-	background-image: url("https://mbch.guide/wp-content/uploads/portrait_corvus_glave.png");
+	background-image: url("https://us.v-cdn.net/6029252/uploads/avatarstock/nJ3EWQVB2HOJH.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 }
